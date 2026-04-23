@@ -27,7 +27,8 @@ function App() {
       setEntries(data);
       setFileName(file.name);
       setFilters({ professor: '', gradeLevel: '', major: '', courseSearch: '' });
-    } catch {
+    } catch (err) {
+      console.error('Failed to parse timetable file:', err);
       setError('Failed to parse file. Please check the format.');
     } finally {
       setLoading(false);
