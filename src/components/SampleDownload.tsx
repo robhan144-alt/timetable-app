@@ -1,14 +1,14 @@
 import { Download } from 'lucide-react';
-import { generateSampleExcel } from '../utils/excelParser';
+import { generateSampleCsv } from '../utils/excelParser';
 
 export default function SampleDownload() {
   return (
     <div className="sample-download">
       <p className="sample-text">
-        Need a template? Download a sample Excel file to see the expected format.
+        Need a template? Download a sample CSV to see the expected column format, then save it as .xlsx to upload.
       </p>
-      <button className="sample-btn" onClick={generateSampleExcel}>
-        <Download size={16} /> Download Sample
+      <button className="sample-btn" onClick={generateSampleCsv}>
+        <Download size={16} /> Download Sample (CSV)
       </button>
     </div>
   );
