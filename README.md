@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# Timetable App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive timetable web application built with **Vite + React + TypeScript**. Upload an Excel file and instantly view a filterable weekly schedule — all processing happens in the browser, no backend required.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 📂 **Excel Upload** — drag-and-drop or click to upload `.xlsx` / `.xls` timetable files
+- 📅 **Weekly Grid** — Monday–Friday columns with time slots as rows; color-coded by major
+- 🔍 **Live Filtering** — filter by Professor, Grade Level, Major, or Course Name (text search)
+- 📥 **Sample Download** — download a sample Excel file to see the expected format
 
-## React Compiler
+## Expected Excel Columns
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Column | Accepted aliases |
+|---|---|
+| Course Name | Course, Subject |
+| Professor | Teacher, Instructor, Lecturer |
+| Grade Level | Grade, Year, Level |
+| Major | Department, Program, Field |
+| Day | Weekday |
+| Time Slot | Time, Period, Slot, Timeslots, Hours |
+| Room *(optional)* | Classroom, Venue, Location |
 
-## Expanding the ESLint configuration
+Headers are case-insensitive and whitespace/dash/underscore-tolerant.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev      # start dev server
+npm run build    # production build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```

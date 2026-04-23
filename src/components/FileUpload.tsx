@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from 'react';
-import { Upload, FileSpreadsheet, X } from 'lucide-react';
+import { useCallback, useState } from 'react';
+import { Upload, FileSpreadsheet } from 'lucide-react';
 
 interface FileUploadProps {
   onUpload: (file: File) => void;
@@ -68,7 +68,7 @@ export default function FileUpload({ onUpload, loading, fileName }: FileUploadPr
           <p className="upload-title">Drag &amp; drop your timetable Excel file here</p>
           <p className="upload-hint">Supports .xlsx and .xls files</p>
           <label className="upload-btn">
-            <X size={0} />Browse File
+            Browse File
             <input type="file" accept=".xlsx,.xls" onChange={handleChange} hidden />
           </label>
         </div>
